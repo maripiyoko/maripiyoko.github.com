@@ -1,103 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
-
-  
-  <meta name="description" content="Developer試験種類 以下の3種類 認定デベロッパー試験
-認定上級デベロッパー試験
-認定テクニカルアーキテクト試験 申込方法（共通） ネットから試験会場・日時を選択し、クレジットカード払いで予約
-試験日当日は会場にて、PCを使った選択問題（上位資格は二次、三次試験有り）
-関東での開催 &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://yoursite.com/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
-  
-    <h2>A blogging framework for hackers.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:yoursite.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/08/salesforce-development/">Salesforce Developer試験</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2013-05-08T21:13:00+09:00" pubdate data-updated="true">May 8<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Developer試験種類</h2>
+  <entry>
+    <title type="html"><![CDATA[Salesforce Developer試験]]></title>
+    <link href="http://yoursite.com/blog/2013/05/08/salesforce-development/"/>
+    <updated>2013-05-08T21:13:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/05/08/salesforce-development</id>
+    <content type="html"><![CDATA[<h2>Developer試験種類</h2>
 
 <p>以下の3種類</p>
 
@@ -286,42 +207,15 @@
 <li>サンプルのアプリ作成方法がわかり、非常にオススメ</li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/07/marketing-math/">初級　経営数字</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-07T21:11:00+09:00" pubdate data-updated="true">May 7<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>損益計算書 (P/L), 貸借対照表(B/S)の読み方</h2>
+  <entry>
+    <title type="html"><![CDATA[初級　経営数字]]></title>
+    <link href="http://yoursite.com/blog/2013/05/07/marketing-math/"/>
+    <updated>2013-05-07T21:11:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/05/07/marketing-math</id>
+    <content type="html"><![CDATA[<h2>損益計算書 (P/L), 貸借対照表(B/S)の読み方</h2>
 
 <h3>決算書の種類</h3>
 
@@ -424,42 +318,15 @@
 <li>ハンズオンでサンプルのP/L, B/Sを読む練習が有意義だった</li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/21/sts-setting/">STS Setting</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-21T15:48:00+09:00" pubdate data-updated="true">Apr 21<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>Spring Tools Suiteの導入</h1>
+  <entry>
+    <title type="html"><![CDATA[STS setting]]></title>
+    <link href="http://yoursite.com/blog/2013/04/21/sts-setting/"/>
+    <updated>2013-04-21T15:48:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/04/21/sts-setting</id>
+    <content type="html"><![CDATA[<h1>Spring Tools Suiteの導入</h1>
 
 <h2>EclipseでSpringをやってみたい</h2>
 
@@ -520,42 +387,15 @@ STSの場合は設定ファイルの名前が違います。</p>
 
 <p>設定反映して、STS再起動。
 デプロイを再度試すと、無事成功〜！</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/20/codeiq-ruby1/">CodeIQ問題に挑戦1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-20T21:28:00+09:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>「Rubyでちょこっとテキスト処理」に挑戦</h2>
+  <entry>
+    <title type="html"><![CDATA[CodeIQ問題に挑戦1]]></title>
+    <link href="http://yoursite.com/blog/2012/12/20/codeiq-ruby1/"/>
+    <updated>2012-12-20T21:28:00+09:00</updated>
+    <id>http://yoursite.com/blog/2012/12/20/codeiq-ruby1</id>
+    <content type="html"><![CDATA[<h2>「Rubyでちょこっとテキスト処理」に挑戦</h2>
 
 <p>suginoyさんの問題、「Rubyでちょこっとテキスト処理」を解いてみました。
 プログラミングの赤ペン先生？的な感じで出してしまった。
@@ -668,42 +508,15 @@ Octopressの設定に手こずって、フィードバックもらってから�
 
 <p>おお！なんと１行になってる。
 すごい。やっぱライブラリ本イチから読んでみたほうが良いかな〜・・・</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/18/initial-setup-blog/">Blog Setup Done</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-18T22:32:00+09:00" pubdate data-updated="true">Dec 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Octopress blog setup done!</h2>
+  <entry>
+    <title type="html"><![CDATA[blog setup done]]></title>
+    <link href="http://yoursite.com/blog/2012/12/18/initial-setup-blog/"/>
+    <updated>2012-12-18T22:32:00+09:00</updated>
+    <id>http://yoursite.com/blog/2012/12/18/initial-setup-blog</id>
+    <content type="html"><![CDATA[<h2>Octopress blog setup done!</h2>
 
 <p>ようやくブログのセットアップができました。
 なんだか無駄に遠回りしたような・・・</p>
@@ -762,85 +575,7 @@ Octopressの設定に手こずって、フィードバックもらってから�
 <p>You&#8217;ve successfully authenticated, but GitHub does not provide shell access.
 と表示されると鍵の設定が正しくできていると確認できます。
 やっとできた。。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/05/08/salesforce-development/">Salesforce Developer試験</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/07/marketing-math/">初級　経営数字</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/21/sts-setting/">STS setting</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/20/codeiq-ruby1/">CodeIQ問題に挑戦1</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/18/initial-setup-blog/">blog setup done</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Your Name -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

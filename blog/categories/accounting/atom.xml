@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: accounting | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/accounting/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[初級　経営数字]]></title>
+    <link href="http://yoursite.com/blog/2013/05/07/marketing-math/"/>
+    <updated>2013-05-07T21:11:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/05/07/marketing-math</id>
+    <content type="html"><![CDATA[<h2>損益計算書 (P/L), 貸借対照表(B/S)の読み方</h2>
+
+<h3>決算書の種類</h3>
+
+<ul>
+<li>損益計算書 ある期間に会社がどのような活動を行い、どのくらい儲けたか</li>
+<li>貸借対照表 ある時点での会社の財産状況</li>
+<li>キャッシュ・フロー計算書</li>
+</ul>
+
+
+<hr />
+
+<h3>損益計算書 P/L (Profit and Loss)</h3>
+
+<h4>損益計算書のチェックポイント</h4>
+
+<ul>
+<li>期間をチェック</li>
+<li>売上高をチェック　→　会社の規模がわかる</li>
+<li>営業利益をチェック　→　会社の本業の力がわかる</li>
+</ul>
+
+
+<h4>損益計算書を比較</h4>
+
+<ul>
+<li>同業、同規模の会社と比較する</li>
+<li>売上原価など、業態毎に大きく違うので、異業種を比較できない</li>
+</ul>
+
+
+<h4>売上原価の見方</h4>
+
+<ul>
+<li>業態によって売上原価に含まれる項目が違う
+メーカーの場合：
+労務費　→　工場での製品生産にかかった人件費は労務費！</li>
+</ul>
+
+
+<h4>比率で見る</h4>
+
+<p><strong>売上高営業利益率 = 営業利益 / 売上高</strong></p>
+
+<ul>
+<li>売上高で各数値を割った、比率で判断する。</li>
+<li>指標は5種類あるが、一番重要なのはコレ</li>
+<li>単年度ではなく、複数年度（5年～）見て比較する</li>
+</ul>
+
+
+<hr />
+
+<h3>貸借対象表 B/S (Balance Sheet)</h3>
+
+<p>Balance Sheet : Balance とは、英語で「残高」のこと
+よく言われる、Balance sheet は左右が balance （釣り合っている）からという意味、ではない。
+（釣り合ってるけど）</p>
+
+<ul>
+<li>ある時点（決算日）の会社のお財布情報を示す</li>
+<li>左右に大きく2分割</li>
+<li>左：資産＝財布の中身</li>
+<li>右：負債＝左側の資産をどうやって調達してきたか</li>
+<li>資産も負債も上から順番に現金化し易い順に並んでいる</li>
+<li>純資産 : 負債側に並んでいるが、返済義務を負わない資金</li>
+</ul>
+
+
+<h4>流動と固定</h4>
+
+<p>流動：1年以内に回収・支払する場合
+固定：流動以外</p>
+
+<h4>貸借対照表のチェックポイント</h4>
+
+<ul>
+<li>流動負債を流動資産でカバーしている（安心）</li>
+<li>純資産の比率が大きい（安定）</li>
+<li>固定資産＜純資産（超安心）</li>
+<li>固定資産＜純資産＋固定負債（安心）</li>
+</ul>
+
+
+<h4>比率で見る</h4>
+
+<ul>
+<li>流動比率＝流動資産 / 流動負債 × 100 (%)　　130～ならば優良企業</li>
+<li>自己資本比率＝純資産 / 総資産 + 100 (%)</li>
+</ul>
+
+
+<h3>まとめ</h3>
+
+<ul>
+<li>企業の経営状況を表す基本的な資料の基本的な読み方、
+チェックポイントがわかりやすく説明されていた</li>
+<li>色々な数値が含まれる中、最も注目すべき点等を強調して教えてくれて
+非常にわかりやすかった</li>
+<li>ハンズオンでサンプルのP/L, B/Sを読む練習が有意義だった</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

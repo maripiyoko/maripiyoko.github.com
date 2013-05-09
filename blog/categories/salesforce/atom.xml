@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: salesforce | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/salesforce/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Salesforce Developer試験]]></title>
+    <link href="http://yoursite.com/blog/2013/05/08/salesforce-development/"/>
+    <updated>2013-05-08T21:13:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/05/08/salesforce-development</id>
+    <content type="html"><![CDATA[<h2>Developer試験種類</h2>
+
+<p>以下の3種類</p>
+
+<ul>
+<li>認定デベロッパー試験</li>
+<li>認定上級デベロッパー試験</li>
+<li>認定テクニカルアーキテクト試験</li>
+</ul>
+
+
+<h3>申込方法（共通）</h3>
+
+<ul>
+<li>ネットから試験会場・日時を選択し、クレジットカード払いで予約</li>
+<li>試験日当日は会場にて、PCを使った選択問題（上位資格は二次、三次試験有り）</li>
+<li>関東での開催
+
+<ul>
+<li>セールスフォース・ドットコム直営会場
+
+<ul>
+<li><a href="https://www.salesforce.com/jp/company/direction.jsp">六本木会場</a> （開催日: 不明）</li>
+<li><a href="http://jp.fujitsu.com/group/flm/facilities/shinagawa/">品川会場</a> （開催日 : 4月17日、5月14日、5月20日、6月4日、6月21日、7月3日、7月19日）</li>
+</ul>
+</li>
+<li>その他一般のテスト会場もある。ネットで登録時に確認可</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h3>認定デベロッパー試験</h3>
+
+<ul>
+<li>設問数／時間 : 60問／90分</li>
+<li>受験料 : 21,000円</li>
+<li>試験方式 : 多肢選択式PC試験 → テストセンターで受験</li>
+<li><a href="https://www.salesforce.com/jp/assets/pdf/misc/studyguide_cert_dev.pdf">サンプル問題、試験範囲</a></li>
+</ul>
+
+
+<hr />
+
+<h3>認定上級デベロッパー試験</h3>
+
+<ul>
+<li>受験資格 : 認定デベロッパー試験合格者</li>
+<li>受験料 : 42,000円</li>
+<li>試験構成 : テストセンターで受験
+
+<ul>
+<li>1次試験（多肢選択式PC試験 69問／120分）</li>
+<li>2次試験（プログラミング実技試験＋論述式試験）</li>
+</ul>
+</li>
+<li>注意点 :  論述は現在(2013/5時点)英語のみで日本語対応については検討中</li>
+</ul>
+
+
+<hr />
+
+<h3>認定テクニカルアーキテクト試験</h3>
+
+<ul>
+<li>受験資格 : 認定デベロッパー試験合格者</li>
+<li>受験料 : 無料 ＋ 52,500 円 ＋ 630,000 円</li>
+<li>試験構成 :
+
+<ul>
+<li>１次試験（オンラインで自己評価テスト 42 問／30 分（無料））</li>
+<li>2次試験（多肢選択式PC試験  60 問／120 分）</li>
+<li>3次試験（レビューボード面接試験 約 4.5 時間）</li>
+</ul>
+</li>
+<li>注意点 :
+
+<ul>
+<li>3次試験は2次試験合格後に改めて申込</li>
+<li>レビューボードの約３週間前に送られてくる案内に従って顧客プレゼン資料を作成</li>
+<li>過去に携わった導入プロジェクトについて発表するため、顧客の承認が必要（承認フォーム提供）</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h3>リリース試験</h3>
+
+<ul>
+<li>資格保持のため、Salesforceのアップデートに伴う更新試験を受け続けなければならない</li>
+<li>受験資格 : 認定デベロッパー試験合格者</li>
+<li>受験料 : 10,500 円（3リリース分込み）</li>
+<li>試験方式 : オンライン試験 約10問～15問／30分</li>
+<li>オンライン試験なのでどこでも受験可能</li>
+<li>1年に3回リリースがあり、全ての試験を2個後のリリース試験が出るまでに受験・合格しないと資格失効する</li>
+<li>各リリース試験は3回まで追試可能</li>
+</ul>
+
+
+<h3>まとめ</h3>
+
+<ul>
+<li>ベース資格の、認定デベロッパー試験はすぐに取得できそう</li>
+<li>上位資格は、2次試験の英語論述や、面接試験等、実務経験豊富でないと合格は厳しそう</li>
+<li>資格保持に毎年10,500 円払う</li>
+<li>資格保持のためのリリース試験自体は簡単そう（しかも3回まで再試験可）</li>
+</ul>
+
+
+<hr />
+
+<h2>そもそもSalesforceとは？</h2>
+
+<ul>
+<li>営業支援（SFA）、顧客管理（CRM）ソフト</li>
+<li>カスタムアプリケーションの構築でより広い業務に適用できる</li>
+<li>カスタムアプリケーションの導入事例 :
+
+<ul>
+<li>日本郵政</li>
+<li>ファーストリテイリング（ユニクロ）</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><a href="http://www.salesforce.com/jp/services-training/education-services/online-training/">オンライントレーニング</a></h3>
+
+<ul>
+<li>無償提供のオンライントレーニングはSalesforceの使い方的な要素が多い</li>
+<li>ビデオ内では画面が英語表記なので、Developer Editionで自分の言語を日本語に指定している場合、若干混乱する。</li>
+</ul>
+
+
+<h4>無償オンライントレーニング一覧と感想</h4>
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDRGV1dlUG83cDBYdHVFaS9WU3k3ei9UOExDV0JjLzBjMkJ1blJLZy9zV3VMNm16TlZiamh0WERJMTVNbk9zQ0ZjR2M3UnlPVVlJbWR4T2l3eU1ZT3RSR0ROVFJzalNMUnlSR21aaFJvbG5NTndoV00wVHZxSnc=">はじめよう：Sales Cloud の利用</a></h4>
+
+<ul>
+<li>Salesforce初めての場合は見たほうが良い</li>
+<li>Salesforceの一般的な使い方のイメージが掴める。（ある営業担当者の標準的な操作）</li>
+<li>大体どんなものかわかっている場合、不要。</li>
+</ul>
+
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDV5bDB0emM4QmtHUncxQ0V6dWNpclFBa3ZJSnplcDU0ZUxCWkZUK00xa0J2MXRucFVpTmcrK0xVWnVhYVdNMmQrRGF5WExKN24zZHRJcjlCWXJKTE5CRVlNRlMwSlhCQzdNTG1CM09XUjBkUThZaVZVZ09oK1k=">はじめよう：Salesforce の操作</a></h4>
+
+<ul>
+<li>Salesforce初めての場合は見たほうが良い</li>
+<li>上記の続き。1つ目で大体イメージがつかめていれば不要。</li>
+<li>用語（英語）の説明があり良いかも。</li>
+</ul>
+
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDZ6OEE3aGZJOUI5RnlrNURyRzBmbEdRcENmaTJmQnlwQ01RRVhlUVMwaElkdXVwb1gxRWZrbGIvNDQzU0dLYVJ0WEhkai82dHRtSjBaeG4waGtxbmo0STN1OXFmTGRsc1B1Ky9KWGJDdHlEeHFaR2xtMWZqL2o=">はじめよう：Salesforce の管理基礎</a></h4>
+
+<ul>
+<li>顧客の管理者向けの内容</li>
+<li>標準的なカスタマイズ可能箇所がわかり、見る価値あり。</li>
+</ul>
+
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVZdmNoNGZMb1JhaSsvM2QyNmxmMjRaSzk4a0xVemZFNjdxL1Bod1Jvd2tGdG9NLzgzYXdIVFZnaXlYWFJXem5uejhhYWNYMzBLdXVNSTRaVTVaRlRnQnVzOWRUUmllU2tOdTlXZXhMRmNaNHJReEcvM2tjbG0=">はじめよう：レポート・ダッシュボードの利用</a></h4>
+
+<ul>
+<li>レポートの作り方など</li>
+<li>さほど有用ではない</li>
+</ul>
+
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVZa2lDVHllTXV3TWdJMXNEcXhmanlwLzJwSVRxVW1JcmFwZkRtRnp2Wm9tTENmcVVBcUJVYllRNytnM1ZQRGNEME9QU3NMeE1JR205d1F5NWl3eC9WYjYxWWQzaG5SZFM5Myt5RFlHZFhFbXM2djQydjZaZEc=">ビジネスにおけるソーシャルメディア：Chatter</a></h4>
+
+<ul>
+<li>不要</li>
+<li>Twitterに用語が似ている。普通に何かのソーシャルメディアを知っていれば見る必要なし。</li>
+</ul>
+
+
+<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVCcTQ2MGZzRVZoWHNDQmJEMm5HbW96dGtiZ3pIWWJMTkx3YW84Y29tZ2NKVGpzcnRUU21rUnVuNE1LSUJ1TXpHcFArSjFGZ3RadVFnWm4ydEx3bDFucHMrZFQ5dkd3NWhUVnlOKys4VHlrVlBaMUMwWHd1ZGg=">はじめよう： Visualforce</a></h4>
+
+<ul>
+<li>開発者向け内容</li>
+<li>サンプルのアプリ作成方法がわかり、非常にオススメ</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

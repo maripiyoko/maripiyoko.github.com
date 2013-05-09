@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: weblog, | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/weblog-/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[blog setup done]]></title>
+    <link href="http://yoursite.com/blog/2012/12/18/initial-setup-blog/"/>
+    <updated>2012-12-18T22:32:00+09:00</updated>
+    <id>http://yoursite.com/blog/2012/12/18/initial-setup-blog</id>
+    <content type="html"><![CDATA[<h2>Octopress blog setup done!</h2>
+
+<p>ようやくブログのセットアップができました。
+なんだか無駄に遠回りしたような・・・</p>
+
+<p>参考URL : <a href="http://tokkonopapa.github.com/blog/2011/12/30/octopress-on-github-and-bitbucket/">Octopressのインストールから運用管理まで</a></p>
+
+<p>1回目見ながらセットアップして、何故かローカルプレビューがうまくできず・・
+2回目本家Octopressサイトを見ながら設定したら、octpressインストール場所が悪かったようで、せっかくのGithub Pagesの素敵なレイアウトが消えて
+ダッサダサの見た目に(涙)
+(1回目が途中までうまく行ってたから、本家サイト英語でも大丈夫だと思ったが適当に読み飛ばしていたらしく失敗...orz)</p>
+
+<p>結局3回目、やはり最初の参考サイトに戻り、無事セットアップ完了しました。
+ありがとうございます〜
+こんなに完璧に書いてあるのに、どうして何度も失敗するんだろう・・(不注意だからよ)</p>
+
+<p>そもそもやりたかったのは、Octopressの設定ではなく、Rubyのコード添削してもらったものを忘れないように書いておきたかっただけなんですが。。</p>
+
+<p>やっとこさ設定が完了したので、これで心置きなく添削結果のことが書ける!!
+・・明日やろーっと。</p>
+
+<p>それにしてもOctopressすごいですね。
+ローカルプレビュー、ちゃんとファイル保存したらすぐ見れるんだ。。
+1回目の謎の失敗で、ローカルプレビューできなくて、いちいちGithubにポストしてから確認してた、あのアホさ加減はなんだったんだ・・</p>
+
+<p>あと、セットアップ完了後に、最初の記事作成でrakeコマンドが通らず、若干困りました。。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post['title']</span></code></pre></td></tr></table></div></figure></notextile></div>
+では私の環境では動かず・・</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post¥["title"¥]</span></code></pre></td></tr></table></div></figure></notextile></div>
+エスケープしないとダメだったみたい。</p>
+
+<p>と、ここまで書いて、いざGithub Pagesにポストしようとしたら、出来ない！
+以前やったGithubの公開鍵設定が、適当にいろいろやったせいでいつの間にか２つ登録されていて、
+今回ポストしようとしているアカウント用ではない鍵が有効になってしまっている模様。。</p>
+
+<p>今度は以下のブログを参考に、SSH鍵再設定に四苦八苦・・</p>
+
+<p>参考URL : <a href="http://logrepo.blogspot.jp/2010/08/github-ssh.html">Github に SSH 公開鍵を登録する</a></p>
+
+<p>とりあえず、ごちゃごちゃになってしまった、~/.ssh/以下の鍵ファイルを削除。
+上記URLとGithubのヘルプページを元に、鍵作成&amp;登録。</p>
+
+<p>SSHでGithubに接続テスト出来る方法が先ほどのブログに書いてあって助かりました。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T git@github.com</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You've successfully authenticated, but GitHub does not provide shell access.
+と表示されると鍵の設定が正しくできていると確認できます。
+やっとできた。。</p>
+]]></content>
+  </entry>
+  
+</feed>

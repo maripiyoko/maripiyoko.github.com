@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[STS setting]]></title>
+    <link href="http://yoursite.com/blog/2013/04/21/sts-setting/"/>
+    <updated>2013-04-21T15:48:00+09:00</updated>
+    <id>http://yoursite.com/blog/2013/04/21/sts-setting</id>
+    <content type="html"><![CDATA[<h1>Spring Tools Suiteの導入</h1>
+
+<h2>EclipseでSpringをやってみたい</h2>
+
+<p>作業環境 : Windows Vista 32bit + Eclipse Juno</p>
+
+<h3>環境のダウンロード &amp; インストール</h3>
+
+<p>Eclipse market placeからSTSの拡張をダウンロードしてみるが、うまく動かない。</p>
+
+<p>Spring Tools Suite(STS)をSpringの公式サイトよりダウンロード。</p>
+
+<ul>
+<li><a href="http://www.springsource.org/eclipse-downloads">STS Download site</a></li>
+</ul>
+
+
+<h3>Google App Engineにアプリケーションをデプロイしたい時にエラーが発生</h3>
+
+<p>STSのEclipse market placeから、Google App Engineをインストール。</p>
+
+<p>作ったアプリケーションをGAEにデプロイするときに、以下のようなエラーが発生する場合がある。</p>
+
+<blockquote><p>java.lang.RuntimeException: Cannot get the System Java Compiler. Please use a JDK, not a JRE.</p></blockquote>
+
+<p>JREじゃなくてJDKを指定せよ！と怒られるので、プロジェクト右クリックで、ビルドパスの設定を確認します。
+（参考イメージ open_configure_buildpath）
+build_path_lib</p>
+
+<p>LiburaryタブでJREの設定を確認します。（Editボタンを押す）
+（参考イメージ : jre_env）</p>
+
+<p>JDKになってるじゃん！
+でもエラーメッセージは変わらずです。。</p>
+
+<h3>解決（起動時のEclipse設定）</h3>
+
+<p>JDKであるという指定は、Eclipseに伝わらないようなので、直接起動時の環境設定で教えてあげます。</p>
+
+<ul>
+<li><p>参考1 <a href="http://stackoverflow.com/questions/13938995/google-app-engine-jsp-cant-deploy-java-lang-runtimeexception-cannot-get-the-s">Stack Overflow の関連投稿</a></p></li>
+<li><p>参考2 <a href="http://wiki.eclipse.org/Eclipse.ini#-vm_value:_Windows_Example">Eclipseの環境設定 for windows</a></p></li>
+</ul>
+
+
+<p>参考2と同じように、自分のJVMの設定を記載する。</p>
+
+<p>通常のEclipseを使っているときは、ECLIPSE_HOMEに置くeclipse.iniファイルに環境設定をしますが、
+STSの場合は設定ファイルの名前が違います。</p>
+
+<p>STS本体のインストール先、STS.exeを置いたパスに、sts.iniファイルがあるので、追加したい設定を追記します。
+ファイルの先頭に以下を追加。</p>
+
+<p><code>
+-vm
+C:\Program Files\Java\jdk1.7.0_03\bin\javaw.exe
+</code></p>
+
+<p>設定反映して、STS再起動。
+デプロイを再度試すと、無事成功〜！</p>
+]]></content>
+  </entry>
+  
+</feed>

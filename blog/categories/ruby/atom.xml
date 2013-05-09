@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | My Octopress Blog]]></title>
+  <link href="http://yoursite.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-05-09T22:22:43+09:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CodeIQ問題に挑戦1]]></title>
+    <link href="http://yoursite.com/blog/2012/12/20/codeiq-ruby1/"/>
+    <updated>2012-12-20T21:28:00+09:00</updated>
+    <id>http://yoursite.com/blog/2012/12/20/codeiq-ruby1</id>
+    <content type="html"><![CDATA[<h2>「Rubyでちょこっとテキスト処理」に挑戦</h2>
+
+<p>suginoyさんの問題、「Rubyでちょこっとテキスト処理」を解いてみました。
+プログラミングの赤ペン先生？的な感じで出してしまった。
+ヘボへボなコードにちゃんとコメントつけて返して頂いて、感謝！です。</p>
+
+<p>Rubyは趣味で勉強しているだけで、本はいろいろ読んでるけど、書いてる量が少なすぎなので
+"Rubyらしい"コードってどんなのかまだわかってない状態です。
+フィードバックを頂いたら、Before→Afterでブログに書こう！と思いつつ
+Octopressの設定に手こずって、フィードバックもらってから随分経ってしまいました・・・</p>
+
+<h4>問</h4>
+
+<p>問題はこんな感じ。</p>
+
+<p>```</p>
+
+<h1>enclose.rb A</h1>
+
+<h1>+-+</h1>
+
+<h1>|A|</h1>
+
+<h1>+-+</h1>
+
+<h1>enclose.rb A BC DEF</h1>
+
+<h1>+---+</h1>
+
+<h1>|A  |</h1>
+
+<h1>+---+</h1>
+
+<h1>|BC |</h1>
+
+<h1>+---+</h1>
+
+<h1>|DEF|</h1>
+
+<h1>+---+</h1>
+
+<p>```</p>
+
+<p>引数で受け取った文字列を、最大文字数で囲んで出力。
+入力文字列の最大長が解れば、できたも同然です。</p>
+
+<h4>Before</h4>
+
+<p>人に見てもらうのだから、なるべく綺麗に・・とドキドキしながら書いたコード</p>
+
+<p>``` ruby enclose.rb</p>
+
+<h1>max length of args</h1>
+
+<p>len = 0
+ARGV.each do |item|</p>
+
+<pre><code>if item.length &gt; len
+    len = item.length
+end
+</code></pre>
+
+<p>end</p>
+
+<p>p "+" + "-" * len + "+"
+i = 0
+ARGV.each do |item|</p>
+
+<pre><code>p sprintf("|%-#{len}s|", item[0..2])
+</code></pre>
+
+<p>end
+p "+" + "-" * len + "+"
+```</p>
+
+<h4>気をつけた点</h4>
+
+<ul>
+<li>文字列の掛け算を使った</li>
+</ul>
+
+
+<p><code>
+"-" * len
+</code></p>
+
+<h4>なんか違うと思いつつ改善策が思いつかなかった点</h4>
+
+<ul>
+<li>前半で最大文字数を探してるところで、ぐるぐるループしてる感じ</li>
+</ul>
+
+
+<p>しかし最初、eachじゃなくてforを使ったりしてたので、謎のi = 0(カウンタに使ってて消し忘れ)が残っています・・</p>
+
+<h4>After</h4>
+
+<p>ご指摘を受けたのは、やはりなんか違うと思った箇所。</p>
+
+<blockquote><p>lenを求める箇所は次のようにするとよりすっきりと書けます。</p></blockquote>
+
+<p><code>ruby
+ARGV.map{|arg| arg.size }.max
+</code></p>
+
+<p>おお！なんと１行になってる。
+すごい。やっぱライブラリ本イチから読んでみたほうが良いかな〜・・・</p>
+]]></content>
+  </entry>
+  
+</feed>
