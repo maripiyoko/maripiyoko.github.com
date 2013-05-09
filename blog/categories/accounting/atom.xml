@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: accounting | My Octopress Blog]]></title>
-  <link href="http://yoursite.com/blog/categories/accounting/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-05-09T22:22:43+09:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[Category: accounting | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/accounting/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-05-09T22:33:12+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Mariko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[初級　経営数字]]></title>
-    <link href="http://yoursite.com/blog/2013/05/07/marketing-math/"/>
+    <link href="http://maripiyoko.github.com/blog/2013/05/07/marketing-math/"/>
     <updated>2013-05-07T21:11:00+09:00</updated>
-    <id>http://yoursite.com/blog/2013/05/07/marketing-math</id>
+    <id>http://maripiyoko.github.com/blog/2013/05/07/marketing-math</id>
     <content type="html"><![CDATA[<h2>損益計算書 (P/L), 貸借対照表(B/S)の読み方</h2>
 
 <h3>決算書の種類</h3>

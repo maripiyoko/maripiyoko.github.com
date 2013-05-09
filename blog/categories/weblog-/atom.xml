@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: weblog, | My Octopress Blog]]></title>
-  <link href="http://yoursite.com/blog/categories/weblog-/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-05-09T22:22:43+09:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[Category: weblog, | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/weblog-/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-05-09T22:33:12+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Mariko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[blog setup done]]></title>
-    <link href="http://yoursite.com/blog/2012/12/18/initial-setup-blog/"/>
+    <link href="http://maripiyoko.github.com/blog/2012/12/18/initial-setup-blog/"/>
     <updated>2012-12-18T22:32:00+09:00</updated>
-    <id>http://yoursite.com/blog/2012/12/18/initial-setup-blog</id>
+    <id>http://maripiyoko.github.com/blog/2012/12/18/initial-setup-blog</id>
     <content type="html"><![CDATA[<h2>Octopress blog setup done!</h2>
 
 <p>ようやくブログのセットアップができました。

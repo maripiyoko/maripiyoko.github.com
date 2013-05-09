@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Google App Engine | My Octopress Blog]]></title>
-  <link href="http://yoursite.com/blog/categories/google-app-engine/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-05-09T22:22:43+09:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[Category: Google App Engine | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/google-app-engine/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-05-09T22:33:12+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Mariko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[STS setting]]></title>
-    <link href="http://yoursite.com/blog/2013/04/21/sts-setting/"/>
+    <link href="http://maripiyoko.github.com/blog/2013/04/21/sts-setting/"/>
     <updated>2013-04-21T15:48:00+09:00</updated>
-    <id>http://yoursite.com/blog/2013/04/21/sts-setting</id>
+    <id>http://maripiyoko.github.com/blog/2013/04/21/sts-setting</id>
     <content type="html"><![CDATA[<h1>Spring Tools Suiteの導入</h1>
 
 <h2>EclipseでSpringをやってみたい</h2>

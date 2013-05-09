@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: salesforce | My Octopress Blog]]></title>
-  <link href="http://yoursite.com/blog/categories/salesforce/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-05-09T22:22:43+09:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[Category: salesforce | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/salesforce/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-05-09T22:33:12+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Mariko]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Salesforce Developer試験]]></title>
-    <link href="http://yoursite.com/blog/2013/05/08/salesforce-development/"/>
+    <link href="http://maripiyoko.github.com/blog/2013/05/08/salesforce-development/"/>
     <updated>2013-05-08T21:13:00+09:00</updated>
-    <id>http://yoursite.com/blog/2013/05/08/salesforce-development</id>
+    <id>http://maripiyoko.github.com/blog/2013/05/08/salesforce-development</id>
     <content type="html"><![CDATA[<h2>Developer試験種類</h2>
 
 <p>以下の3種類</p>
