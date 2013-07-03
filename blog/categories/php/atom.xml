@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: php | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-07-03T11:33:40+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
+  <author>
+    <name><![CDATA[Mariko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PHPのセットアップ]]></title>
+    <link href="http://maripiyoko.github.com/blog/2013/07/03/php-setup/"/>
+    <updated>2013-07-03T09:12:00+09:00</updated>
+    <id>http://maripiyoko.github.com/blog/2013/07/03/php-setup</id>
+    <content type="html"><![CDATA[<h2>Mountain LionでPHPを使えるようにする</h2>
+
+<p>参考URL： <a href="http://www.futomi.com/lecture/macosx/php.html">PHP動作環境の構築 - Mac OS X LeopardでAMP環境を構築しよう - Apache, MySQL, PHP, Perlで作る開発環境 - futomi's CGI Cafe</a></p>
+
+<p>既にプレインストールされているので、特に準備することもなかったのですが。。
+使えるようにするには以下の設定で有効にします。</p>
+
+<h3>Apacheの設定ファイルでPHPを有効にする</h3>
+
+<ul>
+<li><p>エディタで設定ファイルを開く (要管理者権限)
+<code>
+sudo vi /private/etc/apache2/httpd.conf
+</code></p></li>
+<li><p>コメントアウトされている行のコメントを外す
+```</p>
+
+<h1>LoadModule php5_module libexec/apache2/libphp5.so</h1>
+
+<p>```
+行頭の#を削除。</p></li>
+</ul>
+
+
+<h3>Apacheのバーチャルホストを有効にする</h3>
+
+<ul>
+<li>参考URL : <a href="http://www.kuma-de.com/blog/2011-02-09/2535">[Apache] XAMPP for Mac でバーチャルホストの設定をする きんくまデザイン</a></li>
+</ul>
+
+
+<p>自分のホームディレクトリ以下にSitesディレクトリを作ってドキュメントを置きたいので、バーチャルホスト設定します。</p>
+
+<h4>バーチャルホストを有効化</h4>
+
+<ul>
+<li><p>エディタで設定ファイルを開く (要管理者権限)
+<code>
+sudo vi /private/etc/apache2/httpd.conf
+</code></p></li>
+<li><p>コメントアウトされている行のコメントを外す
+<code>
+Include /private/etc/apache2/extra/httpd-vhosts.conf
+</code>
+行頭の#を削除。</p></li>
+</ul>
+
+
+<h4>バーチャルホストで見に行くファイルの場所を設定</h4>
+
+<ul>
+<li><p>エディタで設定ファイルを開く (要管理者権限)
+<code>
+sudo vi /private/etc/apache2/extra/httpd-vhosts.conf
+</code></p></li>
+<li><p>DocumentRootに自分がサイト用のファイルを置きたい場所までのフルパスを記載。
+<code>
+Listen 8001
+&lt;VirtualHost *:8001&gt;
+DocumentRoot /Users/yourname/Sites
+ServerName localhost:8001
+&lt;/VirtualHost&gt;
+&lt;Directory "/Users/mariko/Sites/"&gt;
+  Options Indexes FollowSymLinks MultiViews Includes ExecCGI
+  AddType text/html .shtml .html
+  AddHandler server-parsed .shtml .html
+  AddHandler cgi-script .cgi .pl
+  AllowOverride All
+  Order allow,deny
+  Allow from all
+&lt;/Directory&gt;
+</code></p></li>
+</ul>
+
+
+<h4>テスト用に表示させたいファイルを作成</h4>
+
+<p><code>
+mkdir ~/Sites
+touch index.html
+touch test.php
+</code></p>
+
+<h4>テスト表示させるHTMLファイルを準備</h4>
+
+<p>作成したindex.htmlの中身を適当に用意。</p>
+
+<p>```
+<html>
+  <body></p>
+
+<pre><code>&lt;h1&gt;Hello&lt;/h1&gt;
+</code></pre>
+
+<p>  </body>
+</html>
+```</p>
+
+<h4>テスト表示させるPHPファイルを準備</h4>
+
+<p>作成したtest.phpの中身を以下のように編集。</p>
+
+<p><code>
+&lt;?php phpinfo(); ?&gt;
+</code></p>
+
+<h3>Apacheを起動する</h3>
+
+<ul>
+<li>ターミナルから以下のコマンドを実行 (要管理者権限)</li>
+</ul>
+
+
+<p><code>
+sudo apachectl start
+</code></p>
+
+<h3>動作確認</h3>
+
+<ul>
+<li>ブラウザでlocalhostを見てみる(URL入力)</li>
+</ul>
+
+
+<p><code>
+http://localhost:8001
+</code></p>
+
+<p>Hello と表示されればOK。(先ほど作成したHTML)</p>
+
+<h3>PHPが動くか確認</h3>
+
+<p><code>
+http://localhost:8081/test.php
+</code></p>
+
+<p>phpinfoが実行されて表示されればOK</p>
+]]></content>
+  </entry>
+  
+</feed>

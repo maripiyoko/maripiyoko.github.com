@@ -4,7 +4,7 @@
   <title><![CDATA[Practice makes..]]></title>
   <link href="http://maripiyoko.github.com/atom.xml" rel="self"/>
   <link href="http://maripiyoko.github.com/"/>
-  <updated>2013-05-09T22:33:12+09:00</updated>
+  <updated>2013-07-03T11:33:40+09:00</updated>
   <id>http://maripiyoko.github.com/</id>
   <author>
     <name><![CDATA[Mariko]]></name>
@@ -12,6 +12,185 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPのセットアップ]]></title>
+    <link href="http://maripiyoko.github.com/blog/2013/07/03/php-setup/"/>
+    <updated>2013-07-03T09:12:00+09:00</updated>
+    <id>http://maripiyoko.github.com/blog/2013/07/03/php-setup</id>
+    <content type="html"><![CDATA[<h2>Mountain LionでPHPを使えるようにする</h2>
+
+<p>参考URL： <a href="http://www.futomi.com/lecture/macosx/php.html">PHP動作環境の構築 - Mac OS X LeopardでAMP環境を構築しよう - Apache, MySQL, PHP, Perlで作る開発環境 - futomi&#8217;s CGI Cafe</a></p>
+
+<p>既にプレインストールされているので、特に準備することもなかったのですが。。
+使えるようにするには以下の設定で有効にします。</p>
+
+<h3>Apacheの設定ファイルでPHPを有効にする</h3>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>コメントアウトされている行のコメントを外す</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#LoadModule php5_module libexec/apache2/libphp5.so</span></code></pre></td></tr></table></div></figure>
+
+
+<p>行頭の#を削除。</p>
+
+<h3>Apacheのバーチャルホストを有効にする</h3>
+
+<ul>
+<li>参考URL : <a href="http://www.kuma-de.com/blog/2011-02-09/2535">[Apache] XAMPP for Mac でバーチャルホストの設定をする きんくまデザイン</a></li>
+</ul>
+
+
+<p>自分のホームディレクトリ以下にSitesディレクトリを作ってドキュメントを置きたいので、バーチャルホスト設定します。</p>
+
+<h4>バーチャルホストを有効化</h4>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>コメントアウトされている行のコメントを外す</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Include /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>行頭の#を削除。</p>
+
+<h4>バーチャルホストで見に行くファイルの場所を設定</h4>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>DocumentRootに自分がサイト用のファイルを置きたい場所までのフルパスを記載。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Listen 8001
+</span><span class='line'>&lt;VirtualHost *:8001&gt;
+</span><span class='line'>  DocumentRoot /Users/yourname/Sites
+</span><span class='line'>  ServerName localhost:8001
+</span><span class='line'>&lt;/VirtualHost&gt;
+</span><span class='line'>&lt;Directory "/Users/mariko/Sites/"&gt;
+</span><span class='line'>    Options Indexes FollowSymLinks MultiViews Includes ExecCGI
+</span><span class='line'>    AddType text/html .shtml .html
+</span><span class='line'>    AddHandler server-parsed .shtml .html
+</span><span class='line'>    AddHandler cgi-script .cgi .pl
+</span><span class='line'>    AllowOverride All
+</span><span class='line'>    Order allow,deny
+</span><span class='line'>    Allow from all
+</span><span class='line'>&lt;/Directory&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト用に表示させたいファイルを作成</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/Sites
+</span><span class='line'>touch index.html
+</span><span class='line'>touch test.php</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト表示させるHTMLファイルを準備</h4>
+
+<p>作成したindex.htmlの中身を適当に用意。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;html&gt;
+</span><span class='line'>  &lt;body&gt;
+</span><span class='line'>    &lt;h1&gt;Hello&lt;/h1&gt;
+</span><span class='line'>  &lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト表示させるPHPファイルを準備</h4>
+
+<p>作成したtest.phpの中身を以下のように編集。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php phpinfo(); ?&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Apacheを起動する</h3>
+
+<ul>
+<li>ターミナルから以下のコマンドを実行 (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apachectl start</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>動作確認</h3>
+
+<ul>
+<li>ブラウザでlocalhostを見てみる(URL入力)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8001</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hello と表示されればOK。(先ほど作成したHTML)</p>
+
+<h3>PHPが動くか確認</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8081/test.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>phpinfoが実行されて表示されればOK</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Salesforce Developer試験]]></title>

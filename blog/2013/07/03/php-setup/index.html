@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHPのセットアップ - Practice makes..</title>
+  <meta name="author" content="Mariko">
+
+  
+  <meta name="description" content="Mountain LionでPHPを使えるようにする 参考URL： PHP動作環境の構築 - Mac OS X LeopardでAMP環境を構築しよう - Apache, MySQL, PHP, Perlで作る開発環境 - futomi&#8217;s CGI Cafe &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://maripiyoko.github.com/blog/2013/07/03/php-setup/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Practice makes.." type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Practice makes..</a></h1>
+  
+    <h2>Love Ruby and Mac</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:maripiyoko.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PHPのセットアップ</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T09:12:00+09:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Mountain LionでPHPを使えるようにする</h2>
+
+<p>参考URL： <a href="http://www.futomi.com/lecture/macosx/php.html">PHP動作環境の構築 - Mac OS X LeopardでAMP環境を構築しよう - Apache, MySQL, PHP, Perlで作る開発環境 - futomi&#8217;s CGI Cafe</a></p>
+
+<p>既にプレインストールされているので、特に準備することもなかったのですが。。
+使えるようにするには以下の設定で有効にします。</p>
+
+<h3>Apacheの設定ファイルでPHPを有効にする</h3>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>コメントアウトされている行のコメントを外す</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#LoadModule php5_module libexec/apache2/libphp5.so</span></code></pre></td></tr></table></div></figure>
+
+
+<p>行頭の#を削除。</p>
+
+<h3>Apacheのバーチャルホストを有効にする</h3>
+
+<ul>
+<li>参考URL : <a href="http://www.kuma-de.com/blog/2011-02-09/2535">[Apache] XAMPP for Mac でバーチャルホストの設定をする きんくまデザイン</a></li>
+</ul>
+
+
+<p>自分のホームディレクトリ以下にSitesディレクトリを作ってドキュメントを置きたいので、バーチャルホスト設定します。</p>
+
+<h4>バーチャルホストを有効化</h4>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>コメントアウトされている行のコメントを外す</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Include /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<p>行頭の#を削除。</p>
+
+<h4>バーチャルホストで見に行くファイルの場所を設定</h4>
+
+<ul>
+<li>エディタで設定ファイルを開く (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>DocumentRootに自分がサイト用のファイルを置きたい場所までのフルパスを記載。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Listen 8001
+</span><span class='line'>&lt;VirtualHost *:8001&gt;
+</span><span class='line'>  DocumentRoot /Users/yourname/Sites
+</span><span class='line'>  ServerName localhost:8001
+</span><span class='line'>&lt;/VirtualHost&gt;
+</span><span class='line'>&lt;Directory "/Users/mariko/Sites/"&gt;
+</span><span class='line'>    Options Indexes FollowSymLinks MultiViews Includes ExecCGI
+</span><span class='line'>    AddType text/html .shtml .html
+</span><span class='line'>    AddHandler server-parsed .shtml .html
+</span><span class='line'>    AddHandler cgi-script .cgi .pl
+</span><span class='line'>    AllowOverride All
+</span><span class='line'>    Order allow,deny
+</span><span class='line'>    Allow from all
+</span><span class='line'>&lt;/Directory&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト用に表示させたいファイルを作成</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/Sites
+</span><span class='line'>touch index.html
+</span><span class='line'>touch test.php</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト表示させるHTMLファイルを準備</h4>
+
+<p>作成したindex.htmlの中身を適当に用意。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;html&gt;
+</span><span class='line'>  &lt;body&gt;
+</span><span class='line'>    &lt;h1&gt;Hello&lt;/h1&gt;
+</span><span class='line'>  &lt;/body&gt;
+</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>テスト表示させるPHPファイルを準備</h4>
+
+<p>作成したtest.phpの中身を以下のように編集。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php phpinfo(); ?&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Apacheを起動する</h3>
+
+<ul>
+<li>ターミナルから以下のコマンドを実行 (要管理者権限)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apachectl start</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>動作確認</h3>
+
+<ul>
+<li>ブラウザでlocalhostを見てみる(URL入力)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8001</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hello と表示されればOK。(先ほど作成したHTML)</p>
+
+<h3>PHPが動くか確認</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8081/test.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>phpinfoが実行されて表示されればOK</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mariko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T09:12:00+09:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/setup/'>setup</a>, <a class='category' href='/blog/categories/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maripiyoko.github.com/blog/2013/07/03/php-setup/" data-via="" data-counturl="http://maripiyoko.github.com/blog/2013/07/03/php-setup/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/08/salesforce-development/" title="Previous Post: Salesforce Developer試験">&laquo; Salesforce Developer試験</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/03/php-setup/">PHPのセットアップ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/08/salesforce-development/">Salesforce Developer試験</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/07/marketing-math/">初級　経営数字</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/21/sts-setting/">STS setting</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/codeiq-ruby1/">CodeIQ問題に挑戦1</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mariko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
