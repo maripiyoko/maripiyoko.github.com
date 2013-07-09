@@ -9,7 +9,8 @@
   <meta name="author" content="Mariko">
 
   
-  <meta name="description" content="Mountain LionでPHPを使えるようにする 参考URL： PHP動作環境の構築 - Mac OS X LeopardでAMP環境を構築しよう - Apache, MySQL, PHP, Perlで作る開発環境 - futomi&#8217;s CGI Cafe &hellip;">
+  <meta name="description" content="jQueryスライダを使ってみる Heroku | Pricing の金額計算するページで使われているjQueryのスライダっぽいものを作ってみた。
+（あそこまでゴージャスじゃないけど・・） ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,6 +22,7 @@
   <link rel="canonical" href="http://maripiyoko.github.com/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
@@ -28,8 +30,24 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<script language="JavaScript">
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37996123-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -70,6 +88,50 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/07/05/jquery-slider/">jQuery Slider</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-05T15:29:00+09:00" pubdate data-updated="true">Jul 5<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>jQueryスライダを使ってみる</h2>
+
+<p><a href="https://www.heroku.com/pricing#23-10">Heroku | Pricing </a>の金額計算するページで使われているjQueryのスライダっぽいものを作ってみた。
+（あそこまでゴージャスじゃないけど・・）</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/05/jquery-slider/">もっと読む</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/07/03/php-setup/">PHPのセットアップ</a></h1>
     
     
@@ -100,172 +162,12 @@
 <p>既にプレインストールされているので、特に準備することもなかったのですが。。
 使えるようにするには以下の設定で有効にします。</p>
 
-<h3>Apacheの設定ファイルでPHPを有効にする</h3>
-
-<ul>
-<li>エディタで設定ファイルを開く (要管理者権限)</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>コメントアウトされている行のコメントを外す</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#LoadModule php5_module libexec/apache2/libphp5.so</span></code></pre></td></tr></table></div></figure>
-
-
-<p>行頭の#を削除。</p>
-
-<h3>Apacheのバーチャルホストを有効にする</h3>
-
-<ul>
-<li>参考URL : <a href="http://www.kuma-de.com/blog/2011-02-09/2535">[Apache] XAMPP for Mac でバーチャルホストの設定をする きんくまデザイン</a></li>
-</ul>
-
-
-<p>自分のホームディレクトリ以下にSitesディレクトリを作ってドキュメントを置きたいので、バーチャルホスト設定します。</p>
-
-<h4>バーチャルホストを有効化</h4>
-
-<ul>
-<li>エディタで設定ファイルを開く (要管理者権限)</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/httpd.conf</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>コメントアウトされている行のコメントを外す</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Include /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
-
-
-<p>行頭の#を削除。</p>
-
-<h4>バーチャルホストで見に行くファイルの場所を設定</h4>
-
-<ul>
-<li>エディタで設定ファイルを開く (要管理者権限)</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /private/etc/apache2/extra/httpd-vhosts.conf</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>DocumentRootに自分がサイト用のファイルを置きたい場所までのフルパスを記載。</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Listen 8001
-</span><span class='line'>&lt;VirtualHost *:8001&gt;
-</span><span class='line'>  DocumentRoot /Users/yourname/Sites
-</span><span class='line'>  ServerName localhost:8001
-</span><span class='line'>&lt;/VirtualHost&gt;
-</span><span class='line'>&lt;Directory "/Users/mariko/Sites/"&gt;
-</span><span class='line'>    Options Indexes FollowSymLinks MultiViews Includes ExecCGI
-</span><span class='line'>    AddType text/html .shtml .html
-</span><span class='line'>    AddHandler server-parsed .shtml .html
-</span><span class='line'>    AddHandler cgi-script .cgi .pl
-</span><span class='line'>    AllowOverride All
-</span><span class='line'>    Order allow,deny
-</span><span class='line'>    Allow from all
-</span><span class='line'>&lt;/Directory&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>テスト用に表示させたいファイルを作成</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/Sites
-</span><span class='line'>touch index.html
-</span><span class='line'>touch test.php</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>テスト表示させるHTMLファイルを準備</h4>
-
-<p>作成したindex.htmlの中身を適当に用意。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;html&gt;
-</span><span class='line'>  &lt;body&gt;
-</span><span class='line'>    &lt;h1&gt;Hello&lt;/h1&gt;
-</span><span class='line'>  &lt;/body&gt;
-</span><span class='line'>&lt;/html&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>テスト表示させるPHPファイルを準備</h4>
-
-<p>作成したtest.phpの中身を以下のように編集。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?php phpinfo(); ?&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Apacheを起動する</h3>
-
-<ul>
-<li>ターミナルから以下のコマンドを実行 (要管理者権限)</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apachectl start</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>動作確認</h3>
-
-<ul>
-<li>ブラウザでlocalhostを見てみる(URL入力)</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8001</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Hello と表示されればOK。(先ほど作成したHTML)</p>
-
-<h3>PHPが動くか確認</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:8081/test.php</span></code></pre></td></tr></table></div></figure>
-
-
-<p>phpinfoが実行されて表示されればOK</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/03/php-setup/">もっと読む</a>
+    </footer>
   
 
 
@@ -310,186 +212,12 @@
 </ul>
 
 
-<h3>申込方法（共通）</h3>
-
-<ul>
-<li>ネットから試験会場・日時を選択し、クレジットカード払いで予約</li>
-<li>試験日当日は会場にて、PCを使った選択問題（上位資格は二次、三次試験有り）</li>
-<li>関東での開催
-
-<ul>
-<li>セールスフォース・ドットコム直営会場
-
-<ul>
-<li><a href="https://www.salesforce.com/jp/company/direction.jsp">六本木会場</a> （開催日: 不明）</li>
-<li><a href="http://jp.fujitsu.com/group/flm/facilities/shinagawa/">品川会場</a> （開催日 : 4月17日、5月14日、5月20日、6月4日、6月21日、7月3日、7月19日）</li>
-</ul>
-</li>
-<li>その他一般のテスト会場もある。ネットで登録時に確認可</li>
-</ul>
-</li>
-</ul>
-
-
-<hr />
-
-<h3>認定デベロッパー試験</h3>
-
-<ul>
-<li>設問数／時間 : 60問／90分</li>
-<li>受験料 : 21,000円</li>
-<li>試験方式 : 多肢選択式PC試験 → テストセンターで受験</li>
-<li><a href="https://www.salesforce.com/jp/assets/pdf/misc/studyguide_cert_dev.pdf">サンプル問題、試験範囲</a></li>
-</ul>
-
-
-<hr />
-
-<h3>認定上級デベロッパー試験</h3>
-
-<ul>
-<li>受験資格 : 認定デベロッパー試験合格者</li>
-<li>受験料 : 42,000円</li>
-<li>試験構成 : テストセンターで受験
-
-<ul>
-<li>1次試験（多肢選択式PC試験 69問／120分）</li>
-<li>2次試験（プログラミング実技試験＋論述式試験）</li>
-</ul>
-</li>
-<li>注意点 :  論述は現在(2013/5時点)英語のみで日本語対応については検討中</li>
-</ul>
-
-
-<hr />
-
-<h3>認定テクニカルアーキテクト試験</h3>
-
-<ul>
-<li>受験資格 : 認定デベロッパー試験合格者</li>
-<li>受験料 : 無料 ＋ 52,500 円 ＋ 630,000 円</li>
-<li>試験構成 :
-
-<ul>
-<li>１次試験（オンラインで自己評価テスト 42 問／30 分（無料））</li>
-<li>2次試験（多肢選択式PC試験  60 問／120 分）</li>
-<li>3次試験（レビューボード面接試験 約 4.5 時間）</li>
-</ul>
-</li>
-<li>注意点 :
-
-<ul>
-<li>3次試験は2次試験合格後に改めて申込</li>
-<li>レビューボードの約３週間前に送られてくる案内に従って顧客プレゼン資料を作成</li>
-<li>過去に携わった導入プロジェクトについて発表するため、顧客の承認が必要（承認フォーム提供）</li>
-</ul>
-</li>
-</ul>
-
-
-<hr />
-
-<h3>リリース試験</h3>
-
-<ul>
-<li>資格保持のため、Salesforceのアップデートに伴う更新試験を受け続けなければならない</li>
-<li>受験資格 : 認定デベロッパー試験合格者</li>
-<li>受験料 : 10,500 円（3リリース分込み）</li>
-<li>試験方式 : オンライン試験 約10問～15問／30分</li>
-<li>オンライン試験なのでどこでも受験可能</li>
-<li>1年に3回リリースがあり、全ての試験を2個後のリリース試験が出るまでに受験・合格しないと資格失効する</li>
-<li>各リリース試験は3回まで追試可能</li>
-</ul>
-
-
-<h3>まとめ</h3>
-
-<ul>
-<li>ベース資格の、認定デベロッパー試験はすぐに取得できそう</li>
-<li>上位資格は、2次試験の英語論述や、面接試験等、実務経験豊富でないと合格は厳しそう</li>
-<li>資格保持に毎年10,500 円払う</li>
-<li>資格保持のためのリリース試験自体は簡単そう（しかも3回まで再試験可）</li>
-</ul>
-
-
-<hr />
-
-<h2>そもそもSalesforceとは？</h2>
-
-<ul>
-<li>営業支援（SFA）、顧客管理（CRM）ソフト</li>
-<li>カスタムアプリケーションの構築でより広い業務に適用できる</li>
-<li>カスタムアプリケーションの導入事例 :
-
-<ul>
-<li>日本郵政</li>
-<li>ファーストリテイリング（ユニクロ）</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a href="http://www.salesforce.com/jp/services-training/education-services/online-training/">オンライントレーニング</a></h3>
-
-<ul>
-<li>無償提供のオンライントレーニングはSalesforceの使い方的な要素が多い</li>
-<li>ビデオ内では画面が英語表記なので、Developer Editionで自分の言語を日本語に指定している場合、若干混乱する。</li>
-</ul>
-
-
-<h4>無償オンライントレーニング一覧と感想</h4>
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDRGV1dlUG83cDBYdHVFaS9WU3k3ei9UOExDV0JjLzBjMkJ1blJLZy9zV3VMNm16TlZiamh0WERJMTVNbk9zQ0ZjR2M3UnlPVVlJbWR4T2l3eU1ZT3RSR0ROVFJzalNMUnlSR21aaFJvbG5NTndoV00wVHZxSnc=">はじめよう：Sales Cloud の利用</a></h4>
-
-<ul>
-<li>Salesforce初めての場合は見たほうが良い</li>
-<li>Salesforceの一般的な使い方のイメージが掴める。（ある営業担当者の標準的な操作）</li>
-<li>大体どんなものかわかっている場合、不要。</li>
-</ul>
-
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDV5bDB0emM4QmtHUncxQ0V6dWNpclFBa3ZJSnplcDU0ZUxCWkZUK00xa0J2MXRucFVpTmcrK0xVWnVhYVdNMmQrRGF5WExKN24zZHRJcjlCWXJKTE5CRVlNRlMwSlhCQzdNTG1CM09XUjBkUThZaVZVZ09oK1k=">はじめよう：Salesforce の操作</a></h4>
-
-<ul>
-<li>Salesforce初めての場合は見たほうが良い</li>
-<li>上記の続き。1つ目で大体イメージがつかめていれば不要。</li>
-<li>用語（英語）の説明があり良いかも。</li>
-</ul>
-
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDZ6OEE3aGZJOUI5RnlrNURyRzBmbEdRcENmaTJmQnlwQ01RRVhlUVMwaElkdXVwb1gxRWZrbGIvNDQzU0dLYVJ0WEhkai82dHRtSjBaeG4waGtxbmo0STN1OXFmTGRsc1B1Ky9KWGJDdHlEeHFaR2xtMWZqL2o=">はじめよう：Salesforce の管理基礎</a></h4>
-
-<ul>
-<li>顧客の管理者向けの内容</li>
-<li>標準的なカスタマイズ可能箇所がわかり、見る価値あり。</li>
-</ul>
-
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVZdmNoNGZMb1JhaSsvM2QyNmxmMjRaSzk4a0xVemZFNjdxL1Bod1Jvd2tGdG9NLzgzYXdIVFZnaXlYWFJXem5uejhhYWNYMzBLdXVNSTRaVTVaRlRnQnVzOWRUUmllU2tOdTlXZXhMRmNaNHJReEcvM2tjbG0=">はじめよう：レポート・ダッシュボードの利用</a></h4>
-
-<ul>
-<li>レポートの作り方など</li>
-<li>さほど有用ではない</li>
-</ul>
-
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVZa2lDVHllTXV3TWdJMXNEcXhmanlwLzJwSVRxVW1JcmFwZkRtRnp2Wm9tTENmcVVBcUJVYllRNytnM1ZQRGNEME9QU3NMeE1JR205d1F5NWl3eC9WYjYxWWQzaG5SZFM5Myt5RFlHZFhFbXM2djQydjZaZEc=">ビジネスにおけるソーシャルメディア：Chatter</a></h4>
-
-<ul>
-<li>不要</li>
-<li>Twitterに用語が似ている。普通に何かのソーシャルメディアを知っていれば見る必要なし。</li>
-</ul>
-
-
-<h4><a href="http://lms.cyberu.com/12/lms.aspx?hash=WUlRa1pjd0RRUDVCcTQ2MGZzRVZoWHNDQmJEMm5HbW96dGtiZ3pIWWJMTkx3YW84Y29tZ2NKVGpzcnRUU21rUnVuNE1LSUJ1TXpHcFArSjFGZ3RadVFnWm4ydEx3bDFucHMrZFQ5dkd3NWhUVnlOKys4VHlrVlBaMUMwWHd1ZGg=">はじめよう： Visualforce</a></h4>
-
-<ul>
-<li>開発者向け内容</li>
-<li>サンプルのアプリ作成方法がわかり、非常にオススメ</li>
-</ul>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/08/salesforce-development/">もっと読む</a>
+    </footer>
   
 
 
@@ -534,100 +262,12 @@
 </ul>
 
 
-<hr />
-
-<h3>損益計算書 P/L (Profit and Loss)</h3>
-
-<h4>損益計算書のチェックポイント</h4>
-
-<ul>
-<li>期間をチェック</li>
-<li>売上高をチェック　→　会社の規模がわかる</li>
-<li>営業利益をチェック　→　会社の本業の力がわかる</li>
-</ul>
-
-
-<h4>損益計算書を比較</h4>
-
-<ul>
-<li>同業、同規模の会社と比較する</li>
-<li>売上原価など、業態毎に大きく違うので、異業種を比較できない</li>
-</ul>
-
-
-<h4>売上原価の見方</h4>
-
-<ul>
-<li>業態によって売上原価に含まれる項目が違う
-メーカーの場合：
-労務費　→　工場での製品生産にかかった人件費は労務費！</li>
-</ul>
-
-
-<h4>比率で見る</h4>
-
-<p><strong>売上高営業利益率 = 営業利益 / 売上高</strong></p>
-
-<ul>
-<li>売上高で各数値を割った、比率で判断する。</li>
-<li>指標は5種類あるが、一番重要なのはコレ</li>
-<li>単年度ではなく、複数年度（5年～）見て比較する</li>
-</ul>
-
-
-<hr />
-
-<h3>貸借対象表 B/S (Balance Sheet)</h3>
-
-<p>Balance Sheet : Balance とは、英語で「残高」のこと
-よく言われる、Balance sheet は左右が balance （釣り合っている）からという意味、ではない。
-（釣り合ってるけど）</p>
-
-<ul>
-<li>ある時点（決算日）の会社のお財布情報を示す</li>
-<li>左右に大きく2分割</li>
-<li>左：資産＝財布の中身</li>
-<li>右：負債＝左側の資産をどうやって調達してきたか</li>
-<li>資産も負債も上から順番に現金化し易い順に並んでいる</li>
-<li>純資産 : 負債側に並んでいるが、返済義務を負わない資金</li>
-</ul>
-
-
-<h4>流動と固定</h4>
-
-<p>流動：1年以内に回収・支払する場合
-固定：流動以外</p>
-
-<h4>貸借対照表のチェックポイント</h4>
-
-<ul>
-<li>流動負債を流動資産でカバーしている（安心）</li>
-<li>純資産の比率が大きい（安定）</li>
-<li>固定資産＜純資産（超安心）</li>
-<li>固定資産＜純資産＋固定負債（安心）</li>
-</ul>
-
-
-<h4>比率で見る</h4>
-
-<ul>
-<li>流動比率＝流動資産 / 流動負債 × 100 (%)　　130～ならば優良企業</li>
-<li>自己資本比率＝純資産 / 総資産 + 100 (%)</li>
-</ul>
-
-
-<h3>まとめ</h3>
-
-<ul>
-<li>企業の経営状況を表す基本的な資料の基本的な読み方、
-チェックポイントがわかりやすく説明されていた</li>
-<li>色々な数値が含まれる中、最も注目すべき点等を強調して教えてくれて
-非常にわかりやすかった</li>
-<li>ハンズオンでサンプルのP/L, B/Sを読む練習が有意義だった</li>
-</ul>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/07/marketing-math/">もっと読む</a>
+    </footer>
   
 
 
@@ -678,52 +318,12 @@
 </ul>
 
 
-<h3>Google App Engineにアプリケーションをデプロイしたい時にエラーが発生</h3>
-
-<p>STSのEclipse market placeから、Google App Engineをインストール。</p>
-
-<p>作ったアプリケーションをGAEにデプロイするときに、以下のようなエラーが発生する場合がある。</p>
-
-<blockquote><p>java.lang.RuntimeException: Cannot get the System Java Compiler. Please use a JDK, not a JRE.</p></blockquote>
-
-<p>JREじゃなくてJDKを指定せよ！と怒られるので、プロジェクト右クリックで、ビルドパスの設定を確認します。
-（参考イメージ open_configure_buildpath）
-build_path_lib</p>
-
-<p>LiburaryタブでJREの設定を確認します。（Editボタンを押す）
-（参考イメージ : jre_env）</p>
-
-<p>JDKになってるじゃん！
-でもエラーメッセージは変わらずです。。</p>
-
-<h3>解決（起動時のEclipse設定）</h3>
-
-<p>JDKであるという指定は、Eclipseに伝わらないようなので、直接起動時の環境設定で教えてあげます。</p>
-
-<ul>
-<li><p>参考1 <a href="http://stackoverflow.com/questions/13938995/google-app-engine-jsp-cant-deploy-java-lang-runtimeexception-cannot-get-the-s">Stack Overflow の関連投稿</a></p></li>
-<li><p>参考2 <a href="http://wiki.eclipse.org/Eclipse.ini#-vm_value:_Windows_Example">Eclipseの環境設定 for windows</a></p></li>
-</ul>
-
-
-<p>参考2と同じように、自分のJVMの設定を記載する。</p>
-
-<p>通常のEclipseを使っているときは、ECLIPSE_HOMEに置くeclipse.iniファイルに環境設定をしますが、
-STSの場合は設定ファイルの名前が違います。</p>
-
-<p>STS本体のインストール先、STS.exeを置いたパスに、sts.iniファイルがあるので、追加したい設定を追記します。
-ファイルの先頭に以下を追加。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>-vm
-</span><span class='line'>C:\Program Files\Java\jdk1.7.0_03\bin\javaw.exe</span></code></pre></td></tr></table></div></figure>
-
-
-<p>設定反映して、STS再起動。
-デプロイを再度試すと、無事成功〜！</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/04/21/sts-setting/">もっと読む</a>
+    </footer>
   
 
 
@@ -763,115 +363,12 @@ STSの場合は設定ファイルの名前が違います。</p>
 プログラミングの赤ペン先生？的な感じで出してしまった。
 ヘボへボなコードにちゃんとコメントつけて返して頂いて、感謝！です。</p>
 
-<p>Rubyは趣味で勉強しているだけで、本はいろいろ読んでるけど、書いてる量が少なすぎなので
-&#8220;Rubyらしい&#8221;コードってどんなのかまだわかってない状態です。
-フィードバックを頂いたら、Before→Afterでブログに書こう！と思いつつ
-Octopressの設定に手こずって、フィードバックもらってから随分経ってしまいました・・・</p>
-
-<h4>問</h4>
-
-<p>問題はこんな感じ。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># enclose.rb A
-</span><span class='line'># +-+
-</span><span class='line'># |A|
-</span><span class='line'># +-+
-</span><span class='line'># enclose.rb A BC DEF
-</span><span class='line'># +---+
-</span><span class='line'># |A  |
-</span><span class='line'># +---+
-</span><span class='line'># |BC |
-</span><span class='line'># +---+
-</span><span class='line'># |DEF|
-</span><span class='line'># +---+</span></code></pre></td></tr></table></div></figure>
-
-
-<p>引数で受け取った文字列を、最大文字数で囲んで出力。
-入力文字列の最大長が解れば、できたも同然です。</p>
-
-<h4>Before</h4>
-
-<p>人に見てもらうのだから、なるべく綺麗に・・とドキドキしながら書いたコード</p>
-
-<figure class='code'><figcaption><span>enclose.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># max length of args</span>
-</span><span class='line'><span class="n">len</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="no">ARGV</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">len</span>
-</span><span class='line'>        <span class="n">len</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">length</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="s2">&quot;+&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="n">len</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span>
-</span><span class='line'><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="no">ARGV</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">&quot;|%-</span><span class="si">#{</span><span class="n">len</span><span class="si">}</span><span class="s2">s|&quot;</span><span class="p">,</span> <span class="n">item</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="nb">p</span> <span class="s2">&quot;+&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="n">len</span> <span class="o">+</span> <span class="s2">&quot;+&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>気をつけた点</h4>
-
-<ul>
-<li>文字列の掛け算を使った</li>
-</ul>
-
-
-<figure class='code'><figcaption><span>enclose.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="n">len</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>なんか違うと思いつつ改善策が思いつかなかった点</h4>
-
-<ul>
-<li>前半で最大文字数を探してるところで、ぐるぐるループしてる感じ</li>
-</ul>
-
-
-<p>しかし最初、eachじゃなくてforを使ったりしてたので、謎のi = 0(カウンタに使ってて消し忘れ)が残っています・・</p>
-
-<h4>After</h4>
-
-<p>ご指摘を受けたのは、やはりなんか違うと思った箇所。</p>
-
-<blockquote><p>lenを求める箇所は次のようにするとよりすっきりと書けます。</p></blockquote>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ARGV</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="o">|</span><span class="n">arg</span><span class="o">|</span> <span class="n">arg</span><span class="o">.</span><span class="n">size</span> <span class="p">}</span><span class="o">.</span><span class="n">max</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>おお！なんと１行になってる。
-すごい。やっぱライブラリ本イチから読んでみたほうが良いかな〜・・・</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/20/codeiq-ruby1/">もっと読む</a>
+    </footer>
   
 
 
@@ -912,60 +409,12 @@ Octopressの設定に手こずって、フィードバックもらってから�
 
 <p>参考URL : <a href="http://tokkonopapa.github.com/blog/2011/12/30/octopress-on-github-and-bitbucket/">Octopressのインストールから運用管理まで</a></p>
 
-<p>1回目見ながらセットアップして、何故かローカルプレビューがうまくできず・・
-2回目本家Octopressサイトを見ながら設定したら、octpressインストール場所が悪かったようで、せっかくのGithub Pagesの素敵なレイアウトが消えて
-ダッサダサの見た目に(涙)
-(1回目が途中までうまく行ってたから、本家サイト英語でも大丈夫だと思ったが適当に読み飛ばしていたらしく失敗&#8230;orz)</p>
-
-<p>結局3回目、やはり最初の参考サイトに戻り、無事セットアップ完了しました。
-ありがとうございます〜
-こんなに完璧に書いてあるのに、どうして何度も失敗するんだろう・・(不注意だからよ)</p>
-
-<p>そもそもやりたかったのは、Octopressの設定ではなく、Rubyのコード添削してもらったものを忘れないように書いておきたかっただけなんですが。。</p>
-
-<p>やっとこさ設定が完了したので、これで心置きなく添削結果のことが書ける!!
-・・明日やろーっと。</p>
-
-<p>それにしてもOctopressすごいですね。
-ローカルプレビュー、ちゃんとファイル保存したらすぐ見れるんだ。。
-1回目の謎の失敗で、ローカルプレビューできなくて、いちいちGithubにポストしてから確認してた、あのアホさ加減はなんだったんだ・・</p>
-
-<p>あと、セットアップ完了後に、最初の記事作成でrakeコマンドが通らず、若干困りました。。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post['title']</span></code></pre></td></tr></table></div></figure>
-
-
-<p>では私の環境では動かず・・</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post¥["title"¥]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>エスケープしないとダメだったみたい。</p>
-
-<p>と、ここまで書いて、いざGithub Pagesにポストしようとしたら、出来ない！
-以前やったGithubの公開鍵設定が、適当にいろいろやったせいでいつの間にか２つ登録されていて、
-今回ポストしようとしているアカウント用ではない鍵が有効になってしまっている模様。。</p>
-
-<p>今度は以下のブログを参考に、SSH鍵再設定に四苦八苦・・</p>
-
-<p>参考URL : <a href="http://logrepo.blogspot.jp/2010/08/github-ssh.html">Github に SSH 公開鍵を登録する</a></p>
-
-<p>とりあえず、ごちゃごちゃになってしまった、~/.ssh/以下の鍵ファイルを削除。
-上記URLとGithubのヘルプページを元に、鍵作成&amp;登録。</p>
-
-<p>SSHでGithubに接続テスト出来る方法が先ほどのブログに書いてあって助かりました。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T git@github.com</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You&#8217;ve successfully authenticated, but GitHub does not provide shell access.
-と表示されると鍵の設定が正しくできていると確認できます。
-やっとできた。。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/18/initial-setup-blog/">もっと読む</a>
+    </footer>
   
 
 
@@ -984,6 +433,10 @@ Octopressの設定に手こずって、フィードバックもらってから�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/05/jquery-slider/">jQuery slider</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/03/php-setup/">PHPのセットアップ</a>
       </li>
     
@@ -997,10 +450,6 @@ Octopressの設定に手こずって、フィードバックもらってから�
     
       <li class="post">
         <a href="/blog/2013/04/21/sts-setting/">STS setting</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/20/codeiq-ruby1/">CodeIQ問題に挑戦1</a>
       </li>
     
   </ul>

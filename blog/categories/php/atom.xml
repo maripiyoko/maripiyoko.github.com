@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Practice makes..]]></title>
   <link href="http://maripiyoko.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://maripiyoko.github.com/"/>
-  <updated>2013-07-03T11:45:13+09:00</updated>
+  <updated>2013-07-10T08:13:22+09:00</updated>
   <id>http://maripiyoko.github.com/</id>
   <author>
     <name><![CDATA[Mariko]]></name>
@@ -24,6 +24,9 @@
 
 <p>既にプレインストールされているので、特に準備することもなかったのですが。。
 使えるようにするには以下の設定で有効にします。</p>
+
+<!-- more -->
+
 
 <h3>Apacheの設定ファイルでPHPを有効にする</h3>
 

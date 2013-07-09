@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sample HTML</title>
+  <link rel="stylesheet" href="css/lib/jquery-ui-1.10.3.custom.css">
+  <link rel="stylesheet" href="css/lib/jquery.ui.labeledslider.css">
+  <link rel="stylesheet" href="css/labeledslider.css">
+  <script src="javascript/lib/jquery-1.9.1.js"
+    type="text/javascript"></script>
+  <script src="javascript/lib/jquery-ui-1.10.3.custom.js"
+    type="text/javascript"></script>
+  <script src="javascript/lib/jquery.ui.labeledslider.js"
+    type="text/javascript"></script>
+  <script>
+    $(function() {
+      var _max = 10;
+      var _min = 0;
+      $('#slider').labeledslider({
+        min: _min,
+        max: _max,
+        step: 1,
+        values: [ 0 ],
+        orientation: 'vertical',
+        animate: 'swing',
+        change: function( event, ui ) {
+          var price = ui.value * 1000;
+          $('#total').val(price);
+          var pos = (_max - _min) * ui.value - 5;
+          //console.log(pos);
+          $('#slider-tag').show().animate({bottom: pos+'%'},800)
+            .html('<span class="slider-value">Unit : ' + ui.value + '</span>');
+        }
+      });
+      //$('#total').val($('#slider').slider('values'));
+      $('#slider-tag').hide();
+    });
+
+  </script>
+</head>
+<body>
+  <h1>Labeled slider demo</h1>
+  <h2>Slider</h2>
+  <label for="total">合計額 : </label>
+  <input type="text" size="6" id="total"></input>
+  <label for="total">円</label>
+  <div style="margin: 1em 2em;">
+    <div id="slider" style="height: 400px;">
+      <div id="slider-tag"></div>
+  </div>
+
+</body>
+</html>

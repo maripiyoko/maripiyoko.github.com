@@ -21,6 +21,7 @@
   <link rel="canonical" href="http://maripiyoko.github.com/blog/2013/04/21/sts-setting/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
@@ -28,8 +29,24 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<script language="JavaScript">
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37996123-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -105,6 +122,9 @@
 <ul>
 <li><a href="http://www.springsource.org/eclipse-downloads">STS Download site</a></li>
 </ul>
+
+
+<!-- more -->
 
 
 <h3>Google App Engineにアプリケーションをデプロイしたい時にエラーが発生</h3>
@@ -214,6 +234,10 @@ STSの場合は設定ファイルの名前が違います。</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/05/jquery-slider/">jQuery slider</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/03/php-setup/">PHPのセットアップ</a>
       </li>
     
@@ -227,10 +251,6 @@ STSの場合は設定ファイルの名前が違います。</p>
     
       <li class="post">
         <a href="/blog/2013/04/21/sts-setting/">STS setting</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/20/codeiq-ruby1/">CodeIQ問題に挑戦1</a>
       </li>
     
   </ul>

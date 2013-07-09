@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-07-10T08:13:22+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
+  <author>
+    <name><![CDATA[Mariko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery slider]]></title>
+    <link href="http://maripiyoko.github.com/blog/2013/07/05/jquery-slider/"/>
+    <updated>2013-07-05T15:29:00+09:00</updated>
+    <id>http://maripiyoko.github.com/blog/2013/07/05/jquery-slider</id>
+    <content type="html"><![CDATA[<h2>jQueryスライダを使ってみる</h2>
+
+<p><a href="https://www.heroku.com/pricing#23-10">Heroku | Pricing </a>の金額計算するページで使われているjQueryのスライダっぽいものを作ってみた。
+（あそこまでゴージャスじゃないけど・・）</p>
+
+<!-- more -->
+
+
+<h3>jQuery uiのダウンロード</h3>
+
+<ul>
+<li>テーマを好きな感じにカスタマイズして、ダウンロード</li>
+<li><a href="http://jqueryui.com/themeroller/">jQuery UI ThemeRoller</a></li>
+</ul>
+
+
+<p>とりあえず使ってみる。div要素にidを付けて、ロード時にJavaScriptで書き換えられるようにする。
+縦スライダにしたい場合、div要素のheightを指定する。</p>
+
+<p>``` javascript
+<head>
+  <script></p>
+
+<pre><code>$(function() {
+  ('#slider').slider({
+    orientation: 'vertical'
+  });
+});
+</code></pre>
+
+<p>  </script>
+</head>
+<body>
+  <div id="slider" style="height: 400px;"/>
+</body>
+```</p>
+
+<h3>取得した値をエントリボックスに表示する</h3>
+
+<p>スライダが動かされた時に、発生するイベントにコールバック関数を付け足す。
+これでその時の値が取得出来る。
+新たに追加したinputのidを手がかりに、取得した値をエントリボックスに表示。</p>
+
+<p>``` javascript
+<head>
+  <script></p>
+
+<pre><code>$(function() {
+  ('#slider').labeledslider({
+    min: 0,
+    max: 10,
+    step: 1,
+    values: [ 0 ],
+    orientation: 'vertical',
+    change: function( event, ui ) {
+      var price = ui.value * 1000;
+      }
+  });
+});
+</code></pre>
+
+<p>  </script>
+</head>
+<body>
+  <input type="text" size="6" id="total"></input>
+  <div id="slider" style="height: 400px;"/>
+</body>
+```</p>
+
+<p>上記コードでは、0から10まで1刻みでスライダが動くように指定。
+スライダが動いたイベント発生毎に、取得した値を1000倍してエントリボックスに表示。</p>
+
+<h3>素のjQuery uiで出来ず、ごにょごにょしたところ</h3>
+
+<p>これだけで素敵なスライダが出現して、良い感じなのですが、以下の点カスタマイズが必要でした。</p>
+
+<ul>
+<li>目盛がない（普通スライダの横に|欲しくなると思う）</li>
+<li>現在値のあたりに、タグみたいな表示がない（端がタグっぽく斜め切りにしたい）</li>
+</ul>
+
+
+<h3>スライダに目盛を付ける</h3>
+
+<p>スライダ向きが、横・縦とあるし、目盛の数も変わってくるので、自分でカスタマイズするにはちとレベルが高そう・・
+というわけで、よさげなライブラリを探します。</p>
+
+<ul>
+<li><a href="http://bseth99.github.io/projects/jquery-ui/7-jquery-ui-labeled-slider.html">Adding Labels and Tick Marks to jQuery UI Slider</a></li>
+</ul>
+
+
+<p>英語で探すとあっという間に見つかりますね・・
+世界は広い。</p>
+
+<p>拾ってきたライブラリで、数字を出さないように微調整して、使います。
+tickの線引くのはCSSのborderなのか〜（ふむふむ）</p>
+
+<h3>スライダと一緒に動くタグを付ける</h3>
+
+<p>こっちの方が苦労しました・・
+結局CSSで出来たんですが。。奥が深い・・CSS
+この、斜めに切れ込みが入ってる感じを出すのがわからなくて苦戦しました。</p>
+
+<p><img src="/images/blog/jqslider_tag.png" alt="タグ" /></p>
+
+<p>参考URL : <a href="http://designshack.net/articles/css/code-a-simple-folded-corner-effect-with-css/#more-164967">Code a Simple Folded Corner Effect With CSS</a></p>
+
+<p>要素の端を紙が折れ曲がったように表現するエフェクトを参考にしました。
+私がやりたいのは上と下を斜めに切れば出来そうな感じだったので、CSS擬似要素を使ってこんな感じに。
+タグにしたdiv要素にid属性で "slider-tag" とつけました。</p>
+
+<p>``` css
+/<em> スライダー横のボックス端を折り返したように見せるスタイル（上） </em>/</p>
+
+<h1>slider-tag:before {</h1>
+
+<p>  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 0px;
+  height: 0px;
+  border-top: 20px solid white;
+  border-right: 20px solid #a6c9e2;
+}
+/<em> スライダー横のボックス端を折り返したように見せるスタイル（下） </em>/</p>
+
+<h1>slider-tag:after {</h1>
+
+<p>  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 0px;
+  height: 0px;
+  border-bottom: 20px solid white;
+  border-right: 20px solid #a6c9e2;
+}
+```</p>
+
+<p>それぞれ、左上と左下にぶっといborder要素を書く感じですね。</p>
+
+<p>あとはスライドするときのアニメーションをほわんと動く感じにswingで指定。</p>
+
+<p><a href="/downloads/code/jq_slider_sample.html">デモページはこちら</a></p>
+
+<hr />
+
+<p>コード全体は以下です。
+スライダのコードは短いのでページの中に。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (jq_slider_sample.html)</span> <a href='/downloads/code/jq_slider_sample.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Sample HTML<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/lib/jquery-ui-1.10.3.custom.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/lib/jquery.ui.labeledslider.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/labeledslider.css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascript/lib/jquery-1.9.1.js&quot;</span>
+</span><span class='line'>    <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascript/lib/jquery-ui-1.10.3.custom.js&quot;</span>
+</span><span class='line'>    <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;javascript/lib/jquery.ui.labeledslider.js&quot;</span>
+</span><span class='line'>    <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script&gt;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">_max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">_min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider&#39;</span><span class="p">).</span><span class="nx">labeledslider</span><span class="p">({</span>
+</span><span class='line'>        <span class="nx">min</span><span class="o">:</span> <span class="nx">_min</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">max</span><span class="o">:</span> <span class="nx">_max</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">step</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">values</span><span class="o">:</span> <span class="p">[</span> <span class="mi">0</span> <span class="p">],</span>
+</span><span class='line'>        <span class="nx">orientation</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">animate</span><span class="o">:</span> <span class="s1">&#39;swing&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">change</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">ui</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">price</span> <span class="o">=</span> <span class="nx">ui</span><span class="p">.</span><span class="nx">value</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#total&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">price</span><span class="p">);</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="p">(</span><span class="nx">_max</span> <span class="o">-</span> <span class="nx">_min</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ui</span><span class="p">.</span><span class="nx">value</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>          <span class="c1">//console.log(pos);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider-tag&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">().</span><span class="nx">animate</span><span class="p">({</span><span class="nx">bottom</span><span class="o">:</span> <span class="nx">pos</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">},</span><span class="mi">800</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;span class=&quot;slider-value&quot;&gt;Unit : &#39;</span> <span class="o">+</span> <span class="nx">ui</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>      <span class="c1">//$(&#39;#total&#39;).val($(&#39;#slider&#39;).slider(&#39;values&#39;));</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#slider-tag&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>Labeled slider demo<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h2&gt;</span>Slider<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;total&quot;</span><span class="nt">&gt;</span>合計額 : <span class="nt">&lt;/label&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">size=</span><span class="s">&quot;6&quot;</span> <span class="na">id=</span><span class="s">&quot;total&quot;</span><span class="nt">&gt;&lt;/input&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;total&quot;</span><span class="nt">&gt;</span>円<span class="nt">&lt;/label&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;margin: 1em 2em;&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;slider&quot;</span> <span class="na">style=</span><span class="s">&quot;height: 400px;&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;slider-tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>スタイルシート
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (labeledslider.css)</span> <a href='/downloads/code/css/labeledslider.css'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="c">/* スライダー横のボックス */</span>
+</span><span class='line'><span class="nf">#slider-tag</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span><span class="m">40px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span><span class="m">100px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="m">#a6c9e2</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">margin-left</span><span class="o">:</span><span class="m">2em</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">font-size</span><span class="o">:</span> <span class="k">smaller</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c">/* スライダー横のボックス内の文字用スタイル */</span>
+</span><span class='line'><span class="nc">.slider-value</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">margin-top</span><span class="o">:</span><span class="m">0.7em</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">margin-left</span><span class="o">:</span><span class="m">0.5em</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c">/* スライダー横のボックス端を折り返したように見せるスタイル（上） */</span>
+</span><span class='line'><span class="nf">#slider-tag</span><span class="nd">:before</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-top</span><span class="o">:</span> <span class="m">20px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-right</span><span class="o">:</span> <span class="m">20px</span> <span class="k">solid</span> <span class="m">#a6c9e2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c">/* スライダー横のボックス端を折り返したように見せるスタイル（下） */</span>
+</span><span class='line'><span class="nf">#slider-tag</span><span class="nd">:after</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span> <span class="m">50</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">20px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-right</span><span class="o">:</span> <span class="m">20px</span> <span class="k">solid</span> <span class="m">#a6c9e2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* 合計金額表示箇所のスタイル */</span>
+</span><span class='line'><span class="nf">#total</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">text-align</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">color</span><span class="o">:</span> <span class="m">#f6931f</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">font-size</span><span class="o">:</span><span class="k">larger</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>

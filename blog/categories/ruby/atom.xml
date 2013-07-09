@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Practice makes..]]></title>
   <link href="http://maripiyoko.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://maripiyoko.github.com/"/>
-  <updated>2013-07-03T11:45:13+09:00</updated>
+  <updated>2013-07-10T08:13:22+09:00</updated>
   <id>http://maripiyoko.github.com/</id>
   <author>
     <name><![CDATA[Mariko]]></name>
@@ -23,6 +23,9 @@
 <p>suginoyさんの問題、「Rubyでちょこっとテキスト処理」を解いてみました。
 プログラミングの赤ペン先生？的な感じで出してしまった。
 ヘボへボなコードにちゃんとコメントつけて返して頂いて、感謝！です。</p>
+
+<!-- more -->
+
 
 <p>Rubyは趣味で勉強しているだけで、本はいろいろ読んでるけど、書いてる量が少なすぎなので
 "Rubyらしい"コードってどんなのかまだわかってない状態です。

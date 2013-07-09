@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Practice makes..]]></title>
   <link href="http://maripiyoko.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://maripiyoko.github.com/"/>
-  <updated>2013-07-03T11:45:13+09:00</updated>
+  <updated>2013-07-10T08:13:22+09:00</updated>
   <id>http://maripiyoko.github.com/</id>
   <author>
     <name><![CDATA[Mariko]]></name>
@@ -24,6 +24,9 @@
 なんだか無駄に遠回りしたような・・・</p>
 
 <p>参考URL : <a href="http://tokkonopapa.github.com/blog/2011/12/30/octopress-on-github-and-bitbucket/">Octopressのインストールから運用管理まで</a></p>
+
+<!-- more -->
+
 
 <p>1回目見ながらセットアップして、何故かローカルプレビューがうまくできず・・
 2回目本家Octopressサイトを見ながら設定したら、octpressインストール場所が悪かったようで、せっかくのGithub Pagesの素敵なレイアウトが消えて
