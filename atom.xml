@@ -4,7 +4,7 @@
   <title><![CDATA[Practice makes..]]></title>
   <link href="http://maripiyoko.github.com/atom.xml" rel="self"/>
   <link href="http://maripiyoko.github.com/"/>
-  <updated>2013-07-10T08:13:22+09:00</updated>
+  <updated>2013-09-16T11:01:25+09:00</updated>
   <id>http://maripiyoko.github.com/</id>
   <author>
     <name><![CDATA[Mariko]]></name>
@@ -12,6 +12,232 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Try Github Pull Request]]></title>
+    <link href="http://maripiyoko.github.com/blog/2013/09/12/try-github-pull-request/"/>
+    <updated>2013-09-12T16:37:00+09:00</updated>
+    <id>http://maripiyoko.github.com/blog/2013/09/12/try-github-pull-request</id>
+    <content type="html"><![CDATA[<h2>まじめにgitの練習をしてみる</h2>
+
+<p>使い方がイマイチ分からないまま、だましだまし使っていたgitを改めて勉強中。</p>
+
+<p>最近仕事でgitを使うようにし始めたら、今まで触れないようにしていたremoteとのファイルのやりとりが発生し、（今までは完全なるROM専だったので・・）四苦八苦しながらやってみました。</p>
+
+<p>このページがとっても参考になりました。ありがとうございます。</p>
+
+<ul>
+<li><a href="http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/">GitHub初心者はForkしない方のPull Requestから入門しよう</a></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>確認に使うgitコマンド</h2>
+
+<p>忘れないために・・</p>
+
+<ul>
+<li>ローカルのブランチを確認する</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>リモートのブランチも確認する</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch -a
+</span><span class='line'>* master
+</span><span class='line'>  update-pullreq
+</span><span class='line'>  remotes/origin/HEAD -&gt; origin/master
+</span><span class='line'>  remotes/origin/master
+</span><span class='line'>  remotes/origin/update-pullreq</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>リモートが登録されてないかも、と思ったら</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote -v
+</span><span class='line'>origin  git@github.com:*****/pullreq.git (fetch)
+</span><span class='line'>origin  git@github.com:*****/pullreq.git (push)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とりえあず確認しまくっている・・</p>
+
+<h2>参考サイトを元に以下を実行</h2>
+
+<ul>
+<li>GitHub上で、練習用のリポジトリを作成する</li>
+<li>ローカルで、Pull Request用のブランチを作成してpushする</li>
+<li>GitHub上で、Pull Requestを作成する</li>
+<li>GitHub上で、Pull Requestをマージする</li>
+</ul>
+
+
+<p>非常に丁寧に書いてあるので、参考サイトをまだ見てない場合は是非</p>
+
+<ul>
+<li><a href="http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/">GitHub初心者はForkしない方のPull Requestから入門しよう</a></li>
+</ul>
+
+
+<h2>使用したgitコマンドの復習</h2>
+
+<ul>
+<li>作業用にローカルでブランチを作る</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout -b update-pullreq</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>ローカルで変更をステージしてコミット</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add README.md
+</span><span class='line'>$ git commit -m "Update readme"</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>リモートに送る</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git push origin update-pullreq</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ここでgit初心者の私はどーしてもごちゃごちゃになってしまうのが、remoteを参照する名前。。
+originというのはcloneしてきたリポジトリを参照してるデフォルトの名前。
+なのでこのコマンドの意味は、ローカルのupdate-pullreqブランチをremoteに送っている。
+ローカルの大元ブランチであるmasterとすぐにどっちだか見分けがつかなくなるのは・・そんな変なやつ私だけか・・・</p>
+
+<h2>GitHub上で目的のPull Requestをする</h2>
+
+<p>自分のリポジトリに自分でPull Requestを送ると、他人からPull Requestをもらう宛のない初心者でも、STEP 4のPull Requestをマージするが出来るので良いですね :)</p>
+
+<p>ここまでは参考サイトの通りにやって、無事終了。</p>
+
+<h2>ちょっと困ったこと・・・</h2>
+
+<p>無事マージが終了して、良かった良かった。。となったんですが、一つ疑問が残りました。
+それは、ローカルのリポジトリの状態・・</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch
+</span><span class='line'>  master
+</span><span class='line'>* update-pullreq</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最初にGitHubから取ってきたmasterブランチから、派生させてupdate-pullreqブランチで作業して、masterは最初のままなんですよね・・
+向こうのmasterには、送った変更は統合されてるから、update-pullreqもう必要ないんですけど・・・
+このままブランチ削除でいいのだろうか・・</p>
+
+<ul>
+<li>とりあえずmasterに戻って</li>
+<li>不要になった開発ブランチを削除・・・</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout master
+</span><span class='line'>$ git delete -d update-pullreq
+</span><span class='line'>error: The branch 'update-pullreq' is not fully merged.
+</span><span class='line'>If you are sure you want to delete it, run 'git branch -D update-pullreq'.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>マージされてない変更が残っているので、そのまま削除出来ず。。
+確かにmasterにはマージされていないけど、GitHubのリポジトリに統合されてるから、もう良いので強制削除。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch -D update-pullreq
+</span><span class='line'>Deleted branch update-pullreq (was f72e267).</span></code></pre></td></tr></table></div></figure>
+
+
+<p>無事削除されました。</p>
+
+<p>次はGitHubのリポジトリに反映された方を再取得してみます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git fetch origin
+</span><span class='line'>remote: Counting objects: 1, done.
+</span><span class='line'>remote: Total 1 (delta 0), reused 0 (delta 0)
+</span><span class='line'>Unpacking objects: 100% (1/1), done.
+</span><span class='line'>From github.com:maripiyoko/pullreq
+</span><span class='line'>   b82010b..2564698  master     -&gt; origin/master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>originの最新コードを取得します。
+この時点ではまだローカルのmasterには変更は反映されていません。
+変更はローカルにあるorigin/masterに入っている。</p>
+
+<p>masterとorigin/masterの違いを確認してみましょう。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git diff origin/master
+</span><span class='line'>つらつらと違いがでてくる・・・</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ここでもう一度masterをチェックアウトしなおしてみる（既にmasterにいてももう一度やる）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout master
+</span><span class='line'>Already on 'master'
+</span><span class='line'>Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+</span><span class='line'>  (use "git pull" to update your local branch)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>既にmasterにいた場合は、上記の様なメッセージが出ます。
+このままマージ可能です、とのことなので・・</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git merge origin/master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>無事マージ完了！</p>
+
+<p>・・とここまで、ブログに書いている途中でもう一巡やり直してみたら、先に作業してたブランチを消さずに、fetchの方からやれば、普通にgit branch -dで削除出来るんですね。</p>
+
+<p>なるほど。。git賢いなぁ。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[jQuery slider]]></title>

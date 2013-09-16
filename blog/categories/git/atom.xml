@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Practice makes..]]></title>
+  <link href="http://maripiyoko.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://maripiyoko.github.com/"/>
+  <updated>2013-09-16T11:01:25+09:00</updated>
+  <id>http://maripiyoko.github.com/</id>
+  <author>
+    <name><![CDATA[Mariko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Try Github Pull Request]]></title>
+    <link href="http://maripiyoko.github.com/blog/2013/09/12/try-github-pull-request/"/>
+    <updated>2013-09-12T16:37:00+09:00</updated>
+    <id>http://maripiyoko.github.com/blog/2013/09/12/try-github-pull-request</id>
+    <content type="html"><![CDATA[<h2>まじめにgitの練習をしてみる</h2>
+
+<p>使い方がイマイチ分からないまま、だましだまし使っていたgitを改めて勉強中。</p>
+
+<p>最近仕事でgitを使うようにし始めたら、今まで触れないようにしていたremoteとのファイルのやりとりが発生し、（今までは完全なるROM専だったので・・）四苦八苦しながらやってみました。</p>
+
+<p>このページがとっても参考になりました。ありがとうございます。</p>
+
+<ul>
+<li><a href="http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/">GitHub初心者はForkしない方のPull Requestから入門しよう</a></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>確認に使うgitコマンド</h2>
+
+<p>忘れないために・・</p>
+
+<ul>
+<li><p>ローカルのブランチを確認する
+<code>
+$ git branch
+</code></p></li>
+<li><p>リモートのブランチも確認する
+```
+$ git branch -a</p></li>
+<li><p>master
+update-pullreq
+remotes/origin/HEAD -> origin/master
+remotes/origin/master
+remotes/origin/update-pullreq
+```</p></li>
+<li><p>リモートが登録されてないかも、と思ったら
+<code>
+$ git remote -v
+origin  git@github.com:*****/pullreq.git (fetch)
+origin  git@github.com:*****/pullreq.git (push)
+</code></p></li>
+</ul>
+
+
+<p>とりえあず確認しまくっている・・</p>
+
+<h2>参考サイトを元に以下を実行</h2>
+
+<ul>
+<li>GitHub上で、練習用のリポジトリを作成する</li>
+<li>ローカルで、Pull Request用のブランチを作成してpushする</li>
+<li>GitHub上で、Pull Requestを作成する</li>
+<li>GitHub上で、Pull Requestをマージする</li>
+</ul>
+
+
+<p>非常に丁寧に書いてあるので、参考サイトをまだ見てない場合は是非</p>
+
+<ul>
+<li><a href="http://blog.qnyp.com/2013/05/28/pull-request-for-github-beginners/">GitHub初心者はForkしない方のPull Requestから入門しよう</a></li>
+</ul>
+
+
+<h2>使用したgitコマンドの復習</h2>
+
+<ul>
+<li><p>作業用にローカルでブランチを作る
+<code>
+$ git checkout -b update-pullreq
+</code></p></li>
+<li><p>ローカルで変更をステージしてコミット
+<code>
+$ git add README.md
+$ git commit -m "Update readme"
+</code></p></li>
+<li><p>リモートに送る
+<code>
+$ git push origin update-pullreq
+</code></p></li>
+</ul>
+
+
+<p>ここでgit初心者の私はどーしてもごちゃごちゃになってしまうのが、remoteを参照する名前。。
+originというのはcloneしてきたリポジトリを参照してるデフォルトの名前。
+なのでこのコマンドの意味は、ローカルのupdate-pullreqブランチをremoteに送っている。
+ローカルの大元ブランチであるmasterとすぐにどっちだか見分けがつかなくなるのは・・そんな変なやつ私だけか・・・</p>
+
+<h2>GitHub上で目的のPull Requestをする</h2>
+
+<p>自分のリポジトリに自分でPull Requestを送ると、他人からPull Requestをもらう宛のない初心者でも、STEP 4のPull Requestをマージするが出来るので良いですね :)</p>
+
+<p>ここまでは参考サイトの通りにやって、無事終了。</p>
+
+<h2>ちょっと困ったこと・・・</h2>
+
+<p>無事マージが終了して、良かった良かった。。となったんですが、一つ疑問が残りました。
+それは、ローカルのリポジトリの状態・・</p>
+
+<p><code>
+$ git branch
+  master
+* update-pullreq
+</code></p>
+
+<p>最初にGitHubから取ってきたmasterブランチから、派生させてupdate-pullreqブランチで作業して、masterは最初のままなんですよね・・
+向こうのmasterには、送った変更は統合されてるから、update-pullreqもう必要ないんですけど・・・
+このままブランチ削除でいいのだろうか・・</p>
+
+<ul>
+<li>とりあえずmasterに戻って</li>
+<li>不要になった開発ブランチを削除・・・</li>
+</ul>
+
+
+<p><code>
+$ git checkout master
+$ git delete -d update-pullreq
+error: The branch 'update-pullreq' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D update-pullreq'.
+</code></p>
+
+<p>マージされてない変更が残っているので、そのまま削除出来ず。。
+確かにmasterにはマージされていないけど、GitHubのリポジトリに統合されてるから、もう良いので強制削除。</p>
+
+<p><code>
+$ git branch -D update-pullreq
+Deleted branch update-pullreq (was f72e267).
+</code>
+無事削除されました。</p>
+
+<p>次はGitHubのリポジトリに反映された方を再取得してみます。</p>
+
+<p><code>
+$ git fetch origin
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (1/1), done.
+From github.com:maripiyoko/pullreq
+   b82010b..2564698  master     -&gt; origin/master
+</code>
+originの最新コードを取得します。
+この時点ではまだローカルのmasterには変更は反映されていません。
+変更はローカルにあるorigin/masterに入っている。</p>
+
+<p>masterとorigin/masterの違いを確認してみましょう。</p>
+
+<p><code>
+$ git diff origin/master
+つらつらと違いがでてくる・・・
+</code></p>
+
+<p>ここでもう一度masterをチェックアウトしなおしてみる（既にmasterにいてももう一度やる）</p>
+
+<p><code>
+$ git checkout master
+Already on 'master'
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+</code></p>
+
+<p>既にmasterにいた場合は、上記の様なメッセージが出ます。
+このままマージ可能です、とのことなので・・</p>
+
+<p><code>
+$ git merge origin/master
+</code>
+無事マージ完了！</p>
+
+<p>・・とここまで、ブログに書いている途中でもう一巡やり直してみたら、先に作業してたブランチを消さずに、fetchの方からやれば、普通にgit branch -dで削除出来るんですね。</p>
+
+<p>なるほど。。git賢いなぁ。</p>
+]]></content>
+  </entry>
+  
+</feed>
